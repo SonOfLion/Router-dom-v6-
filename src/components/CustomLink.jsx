@@ -1,12 +1,16 @@
-import { Link, useMatch } from 'react-router-dom';
+import React from 'react';
 
-const CustomLink = ({ children, to, ...props }) => {
+import { Link, useMatch } from "react-router-dom";
+
+function CustomLink({ children, to, ...props }) {
   const match = useMatch(to);
+
   return (
-    <Link to={ to } {...props} style={{ color: match ? '#2281f5' : '#f0f2f5' }}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <Link to={to} {...props} style={{ color: match ? "#2281f5" : "#f0f2f5" }}>
       {children}
     </Link>
   );
-};
+}
 
 export default CustomLink;

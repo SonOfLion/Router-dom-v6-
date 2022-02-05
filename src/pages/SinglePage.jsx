@@ -1,20 +1,26 @@
-import { useParams, Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-const SinglePage = () => {
+function SinglePage() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(res => res.json())
-      .then(data => setPost(data))
+      .then((res) => res.json())
+      .then((data) => setPost(data));
   }, [id]);
 
+  const goBack = () => navigate(-1);
 
   return (
     <div>
+      <button type="button" onClick={goBack}>
+        Go back
+      </button>
       {post && (
         <>
           <h1>{post.title}</h1>
@@ -24,6 +30,6 @@ const SinglePage = () => {
       )}
     </div>
   );
-};
+}
 
 export default SinglePage;

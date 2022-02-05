@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
+import React from 'react';
 
 import CustomLink from "./CustomLink";
 
-const Layout = () => {
+function Layout() {
   return (
     <>
-      <header className={"navigation"}>
+      <header className="navigation">
         <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/posts">Blog</CustomLink>
         <CustomLink to="/about">About</CustomLink>
@@ -16,6 +17,6 @@ const Layout = () => {
       <footer className="footer">2022</footer>
     </>
   );
-};
+}
 
 export default Layout;
