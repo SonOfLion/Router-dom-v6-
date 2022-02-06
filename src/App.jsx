@@ -31,7 +31,10 @@ function App() {
                 <CreatePost />
               </RequireAuth>
             }/>
-          <Route path="about" element={<AboutPage />} />
+          <Route path="about" element={<AboutPage />}>
+              <Route path="contacts" element={<p>Our contacts</p>}  />
+              <Route path="team" element={<p>Our team</p>}  />
+          </Route>
           <Route path="about-us" element={<Navigate to="/about" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

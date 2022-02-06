@@ -3,7 +3,10 @@ import React from 'react';
 import { Link, useMatch } from "react-router-dom";
 
 function CustomLink({ children, to, ...props }) {
-  const match = useMatch(to);
+  const match = useMatch({
+    path: to,
+    end: to.length === 1,
+  });
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
